@@ -64,7 +64,18 @@ const images = [
   },
 ];
 
+
+
 const gallery = document.querySelector(".gallery");
+gallery.addEventListener('click', function (event) {
+  event.preventDefault();
+
+  if (event.target.classList.contains('gallery-image')) {
+    const largeImageSource = event.target.getAttribute('data-source');
+    alert('Ви клікнули на зображення! Посилання на велике зображення: ' + largeImageSource);
+  }
+});
+
 
 const fragment = document.createDocumentFragment();
 for (let img of images) {
@@ -73,6 +84,10 @@ for (let img of images) {
 
   const listLink = document.createElement('a');
   listLink.classList.add('gallery-link');
+  listLink.addEventListener('click', function (event) {
+    event.preventDefault();
+    // alert('Ви клікнули на зображення!');
+  }); 
   listLink.href = img.original;
 
   const imgElement = document.createElement('img');
