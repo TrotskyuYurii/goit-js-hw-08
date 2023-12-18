@@ -1,3 +1,14 @@
+import * as basicLightbox from 'basiclightbox';
+
+const instance = basicLightbox.create(`
+	<h1>Not closable</h1>
+	<p>It's not possible to close this lightbox with a click.</p>
+`, {
+	closable: false
+});
+
+
+
 const images = [
   {
     preview:
@@ -77,6 +88,9 @@ gallery.addEventListener('click', function (event) {
 });
 
 
+
+
+
 const fragment = document.createDocumentFragment();
 for (let img of images) {
   const listItem = document.createElement('li');
@@ -86,7 +100,6 @@ for (let img of images) {
   listLink.classList.add('gallery-link');
   listLink.addEventListener('click', function (event) {
     event.preventDefault();
-    // alert('Ви клікнули на зображення!');
   }); 
   listLink.href = img.original;
 
@@ -103,3 +116,4 @@ for (let img of images) {
 }
 
 gallery.appendChild(fragment);
+
