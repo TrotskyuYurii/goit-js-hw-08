@@ -38,9 +38,9 @@ img {
 }
 
 .gallery-item{
-   /* width: 360px; */
-   width: 33.33%;
-   height: 33.33%; 
+   width: 360px;
+   /* width: 33.33%;
+   height: 33.33%;  */
    text-align: center;
  
 }
