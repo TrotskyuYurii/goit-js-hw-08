@@ -67,13 +67,6 @@ const images = [
 
 
 
-// const instance = basicLightbox.create(
-  
-//   `<h1>Not closable</h1>
-// 	<p>It's not possible to close this lightbox with a click.</p>`
-  
-//   );
-
 
 
 
@@ -85,6 +78,7 @@ gallery.addEventListener('click', function (event) {
   if (event.target.classList.contains('gallery-image')) {
     const largeImageSource = event.target.getAttribute('data-source');
     
+    //++Формування коду для віводу у бібліотеку
     const fragmentDiv  = document.createElement('div');
     fragmentDiv.classList.add('modal');
 
@@ -94,9 +88,12 @@ gallery.addEventListener('click', function (event) {
     fragmentImg.height = '640';
     
     fragmentDiv.appendChild(fragmentImg);
+    //--
 
+    //++Вивод зображення у модалку через бібліотеку
     const instance = basicLightbox.create(fragmentDiv);
     instance.show();
+    //--
 
   }
 });
@@ -128,5 +125,3 @@ for (let img of images) {
 }
 
 gallery.appendChild(fragment);
-//--
-
