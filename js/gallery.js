@@ -67,14 +67,12 @@ const images = [
 
 
 
-const instance = basicLightbox.create(
+// const instance = basicLightbox.create(
   
-  `
-	<h1>Not closable</h1>
-	<p>It's not possible to close this lightbox with a click.</p>
-`, {
-	// closable: false
-});
+//   `<h1>Not closable</h1>
+// 	<p>It's not possible to close this lightbox with a click.</p>`
+  
+//   );
 
 
 
@@ -86,9 +84,20 @@ gallery.addEventListener('click', function (event) {
 
   if (event.target.classList.contains('gallery-image')) {
     const largeImageSource = event.target.getAttribute('data-source');
-    // alert('Ви клікнули на зображення! Посилання на велике зображення: ' + largeImageSource);
     
-    instance.show(largeImageSource);
+    const fragmentDiv  = document.createElement('div');
+    fragmentDiv.classList.add('modal');
+
+    const fragmentImg = document.createElement('img');
+    fragmentImg.src  = largeImageSource;
+    fragmentImg.width  = '1121';
+    fragmentImg.height = '640';
+    
+    fragmentDiv.appendChild(fragmentImg);
+
+    const instance = basicLightbox.create(fragmentDiv);
+    instance.show();
+
   }
 });
 
