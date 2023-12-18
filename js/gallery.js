@@ -1,14 +1,3 @@
-// import * as basicLightbox from 'basiclightbox';
-
-const instance = basicLightbox.create(`
-	<h1>Not closable</h1>
-	<p>It's not possible to close this lightbox with a click.</p>
-`, {
-	closable: false
-});
-
-
-
 const images = [
   {
     preview:
@@ -75,9 +64,17 @@ const images = [
   },
 ];
 
-// ++Курсор
 
-//--
+
+
+const instance = basicLightbox.create(
+  
+  `
+	<h1>Not closable</h1>
+	<p>It's not possible to close this lightbox with a click.</p>
+`, {
+	// closable: false
+});
 
 
 
@@ -89,7 +86,9 @@ gallery.addEventListener('click', function (event) {
 
   if (event.target.classList.contains('gallery-image')) {
     const largeImageSource = event.target.getAttribute('data-source');
-    alert('Ви клікнули на зображення! Посилання на велике зображення: ' + largeImageSource);
+    // alert('Ви клікнули на зображення! Посилання на велике зображення: ' + largeImageSource);
+    
+    instance.show(largeImageSource);
   }
 });
 
