@@ -76,14 +76,7 @@ const images = [
 ];
 
 // ++Курсор
-const customCursor = document.getElementById('custom-cursor');
 
-document.addEventListener('mousemove', (event) => {
-  const x = event.clientX;
-  const y = event.clientY;
-
-  customCursor.style.transform = `translate(${x}px, ${y}px)`;
-});
 //--
 
 
@@ -127,5 +120,5 @@ for (let img of images) {
 }
 
 gallery.appendChild(fragment);
-
 //--
+

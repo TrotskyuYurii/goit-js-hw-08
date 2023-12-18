@@ -31,7 +31,6 @@ img {
 }
 /* ------ */
 
-
 .gallery{
     display: grid;
     max-width: 1140px;
@@ -45,13 +44,17 @@ img {
 
 .gallery-item{
 
- 
+}
+
+.gallery-link{
+
 }
 
 
-/* .gallery-image{
+
+.gallery-image{
     cursor: pointer;
-} */
+}
 
 #custom-cursor {
   position: fixed;
@@ -59,7 +62,7 @@ img {
   left: 0;
   pointer-events: none;
   z-index: 9999;
-  /* display: none; */
+  display: none;
 }
 
 .gallery-link {
