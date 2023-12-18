@@ -1,3 +1,5 @@
+let instance = null;
+
 const images = [
   {
     preview:
@@ -66,10 +68,6 @@ const images = [
 
 
 
-
-
-
-
 //++Формування галереї
 const gallery = document.querySelector(".gallery");
 gallery.addEventListener('click', function (event) {
@@ -91,15 +89,28 @@ gallery.addEventListener('click', function (event) {
     //--
 
     //++Вивод зображення у модалку через бібліотеку
-    const instance = basicLightbox.create(fragmentDiv);
+    instance = basicLightbox.create(fragmentDiv);
     instance.show();
     //--
 
+     // Додано прослуховування подій клавіатури
+     document.addEventListener('keydown', handleKeyDown);
+     //--
+
   }
 });
+//--
 
+//++ Прослуховування натискання esc
+function handleKeyDown(event) {
+  if (event.code === 'Escape') {
+    instance.close();
+    document.removeEventListener('keydown', handleKeyDown);
+  }
+}
+//--
 
-
+//++вивід галереї
 const fragment = document.createDocumentFragment();
 for (let img of images) {
   const listItem = document.createElement('li');
@@ -125,3 +136,4 @@ for (let img of images) {
 }
 
 gallery.appendChild(fragment);
+//--
