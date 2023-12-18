@@ -75,8 +75,21 @@ const images = [
   },
 ];
 
+// ++Курсор
+const customCursor = document.getElementById('custom-cursor');
+
+document.addEventListener('mousemove', (event) => {
+  const x = event.clientX;
+  const y = event.clientY;
+
+  customCursor.style.transform = `translate(${x}px, ${y}px)`;
+});
+//--
 
 
+
+
+//++Формування галереї
 const gallery = document.querySelector(".gallery");
 gallery.addEventListener('click', function (event) {
   event.preventDefault();
@@ -86,8 +99,6 @@ gallery.addEventListener('click', function (event) {
     alert('Ви клікнули на зображення! Посилання на велике зображення: ' + largeImageSource);
   }
 });
-
-
 
 
 
@@ -117,3 +128,4 @@ for (let img of images) {
 
 gallery.appendChild(fragment);
 
+//--
