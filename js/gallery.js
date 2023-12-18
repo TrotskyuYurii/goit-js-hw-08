@@ -1,4 +1,4 @@
-// import * as basicLightbox from 'basiclightbox';
+import * as basicLightbox from 'basiclightbox';
 
 // const instance = basicLightbox.create(`
 // 	<h1>Not closable</h1>
