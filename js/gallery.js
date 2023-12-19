@@ -66,6 +66,14 @@ const images = [
   },
 ];
 
+//++ Прослуховування натискання esc
+function handleKeyDown(event) {
+  if (event.code === 'Escape') {
+    instance.close();
+    document.removeEventListener('keydown', handleKeyDown);
+  }
+}
+//--
 
 //++Формування галереї
 const gallery = document.querySelector(".gallery");
@@ -85,29 +93,29 @@ gallery.addEventListener('click', function (event) {
     fragmentImg.height = '640';
     
     fragmentDiv.appendChild(fragmentImg);
+    var htmlString = fragmentDiv.outerHTML;
+    console.log(htmlString);
     //--
 
     //++Вивод зображення у модалку через бібліотеку
-    instance = basicLightbox.create(fragmentDiv);
+    instance = basicLightbox.create(htmlString, {
+      onShow: () => {
+        document.addEventListener('keydown', handleKeyDown);
+      },
+      onClose: () => {
+        document.removeEventListener('keydown', handleKeyDown);
+      }
+    });
     instance.show();
     //--
-
-     // Додано прослуховування подій клавіатури
-     document.addEventListener('keydown', handleKeyDown);
-     //--
 
   }
 });
 //--
 
-//++ Прослуховування натискання esc
-function handleKeyDown(event) {
-  if (event.code === 'Escape') {
-    instance.close();
-    document.removeEventListener('keydown', handleKeyDown);
-  }
-}
-//--
+
+
+
 
 //++вивід галереї
 const fragment = document.createDocumentFragment();
