@@ -67,7 +67,6 @@ const images = [
 ];
 
 
-
 //++Формування галереї
 const gallery = document.querySelector(".gallery");
 gallery.addEventListener('click', function (event) {
